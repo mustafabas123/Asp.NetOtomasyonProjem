@@ -1,0 +1,36 @@
+﻿@using OtomasyonProjesi.Models.Classlar
+@model List<FaturaKalem>
+
+@{
+    ViewBag.Title = "DetailBills";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h5>Fatura Kalem Sayfası</h5>
+<br />
+
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>Fatura Kalem Id</th>
+            <th>Açıklama</th>
+            <th>Miktar</th>
+            <th>Birim Fiyat</th>
+            <th>Tutar</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>@item.FaturaKalemId</td>
+            <td>@item.Aciklama</td>
+            <td>@item.Miktar</td>
+            <td>@item.BirimFiyat</td>
+            <td>@item.Tutar</td>
+        </tr>
+        }
+    </tbody>
+</table>
+
+<a href="/Bills/YeniKalem/" class="btn btn-outline-danger">Yeni Kalem Ekle</a>

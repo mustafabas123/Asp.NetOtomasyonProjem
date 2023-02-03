@@ -1,0 +1,30 @@
+﻿@model OtomasyonProjesi.Models.Classlar.Bills
+@{
+    ViewBag.Title = "AddBills";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<form method="post">
+    @Html.Label("Seri No")
+    @Html.TextBoxFor(x =>x.BillsSeriNo , new { @class = "form-control" })
+    <br />
+    @Html.Label("Sira No")
+    @Html.TextBoxFor(x => x.BillsSiraNo, new { @class = "form-control" })
+    <br />
+    @Html.Label("Tarih")
+    @Html.TextBoxFor(x => x.BillsDate, new { @class = "form-control" })
+    <br />
+    @Html.Label("Vergi Dairesi")
+    @Html.TextBoxFor(x => x.TaxAdministration, new { @class = "form-control" })
+    <br />
+    @Html.Label("Saat")
+    @Html.TextBoxFor(x => x.Clock, new { @class = "form-control" })
+    <br />
+    @Html.Label("Teslim eden")
+    @Html.TextBoxFor(x => x.submitterName, new { @class = "form-control" })
+    <br />
+    @Html.Label("Teslim alan")
+    @Html.TextBoxFor(x => x.deliveryName, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-outline-primary">Ürün Ekle</button>
+</form>

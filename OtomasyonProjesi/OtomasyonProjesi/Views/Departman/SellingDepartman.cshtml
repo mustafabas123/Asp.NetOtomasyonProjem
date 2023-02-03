@@ -1,0 +1,38 @@
+﻿@using OtomasyonProjesi.Models.Classlar
+@model List<SalesMovements>
+@{
+    ViewBag.Title = "SellingDepartman";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<br />
+<div class="container">
+    <h2>Satış Bilgileri Sayfası</h2>
+    <br />
+    <p>Satış Yapan Personelin Adı : @ViewBag.v2</p>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Ürün</th>
+                <th>Müşteri</th>
+                <th>Adet</th>
+                <th>Fiyat</th>
+                <th>Toplam</th>
+                <th>Tarih</th>
+                <th>Hesapla</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach(var item in Model)
+            {
+                <td>@item.Products.ProductName</td>
+                <td>@item.Customers.CustomerName  @item.Customers.CustomerSurname </td>
+                <td>@item.Piece</td>
+                <td>@item.Price</td>
+                <td>@item.Total</td>
+                <td>@Convert.ToDateTime(item.Date).ToString("dd/mm/yyyy")</td>
+                <td><a href="#" class="btn btn-outline-primary">Hesapla</a></td>
+            }
+        </tbody>
+    </table>
+
+

@@ -1,0 +1,30 @@
+﻿@model OtomasyonProjesi.Models.Classlar.SalesMovements
+@{
+    ViewBag.Title = "AddSales";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<form method="post">
+
+    @Html.Label("Ürün Adı")
+    @Html.DropDownListFor(x => x.Productid, (List<SelectListItem>)ViewBag.v1, new { @class = "form-control" })
+    <br />
+    @Html.Label("Personel Adı")
+    @Html.DropDownListFor(x => x.Customerid, (List<SelectListItem>)ViewBag.v2, new { @class = "form-control" })
+    <br />
+    @Html.Label("Müşteri Adı")
+    @Html.DropDownListFor(x => x.Personelid, (List<SelectListItem>)ViewBag.v3, new { @class = "form-control" })
+    <br />
+    @Html.Label("Adet")
+    @Html.TextBoxFor(x => x.Piece, new { @class = "form-control" })
+    <br />
+    @Html.Label("Fiyat")
+    @Html.TextBoxFor(x => x.Price, new { @class = "form-control" })
+    <br />
+    @Html.Label("Toplam")
+    @Html.TextBoxFor(x => x.Total, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-outline-primary">Ürün Ekle</button>
+</form>
+
+

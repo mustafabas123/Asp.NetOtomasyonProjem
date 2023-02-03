@@ -1,0 +1,27 @@
+﻿@model OtomasyonProjesi.Models.Classlar.Customer
+@{
+    ViewBag.Title = "UpdateCustomer";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<h5>Müşteri Günceleme Sayfası</h5>
+<form method="post">
+    @Html.HiddenFor(x => x.CustomerId)
+    @Html.Label("Müşteri Adı")
+    @Html.TextBoxFor(x => x.CustomerName, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x =>x.CustomerName,"",new {@class="text-danger"})
+    <br />
+    @Html.Label("Müşteri Soyadı")
+    @Html.TextBoxFor(x => x.CustomerSurname, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.CustomerSurname, "", new {@class="text-danger"})
+    <br />
+    @Html.Label("Müşteri Şehri")
+    @Html.TextBoxFor(x => x.CustomerCity, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x =>x.CustomerCity,"",new {@class="text-danger"})
+    <br />
+    @Html.Label("Email")
+    @Html.TextBoxFor(x => x.CustomerMail, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.CustomerMail,"",new {@class = "text-danger"})
+    <br />
+    <button class="btn btn-outline-primary">Güncelle</button>
+</form>
+

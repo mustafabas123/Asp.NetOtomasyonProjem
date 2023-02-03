@@ -1,0 +1,27 @@
+﻿@model OtomasyonProjesi.Models.Classlar.CargoDetail
+@{
+    ViewBag.Title = "AddCargo";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Kargo Ekle Sayfası</h2>
+
+<form method="post">
+    @Html.Label("Takip Kodu")
+    <input class="form-control" value="@ViewBag.k1" type="text" name="TrackingCode" readonly/>
+    <br />
+    @Html.Label("Personel")
+    <input class="form-control" type="text" name="Personel"/>
+    <br />
+    @Html.Label("Teslim edilen")
+    <input class="form-control" type="text" name="Receiver"/>
+    <br />
+    @Html.Label("Tarih")
+    <input class="form-control" type="date" name="Date"/>
+    <br />
+    @Html.Label("Açıklama")
+    @Html.TextAreaFor(x =>x.Description,new {@class="form-control"})
+    <br />
+    <button class="btn btn-outline-primary">Kargo Ekle</button>
+</form>
+

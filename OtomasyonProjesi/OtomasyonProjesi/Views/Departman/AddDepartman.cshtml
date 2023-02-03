@@ -1,0 +1,13 @@
+﻿@model OtomasyonProjesi.Models.Classlar.Department
+@{
+    ViewBag.Title = "AddDepartman";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<form method="post">
+    @Html.Label("Ürün Adı")
+    @Html.TextBoxFor(x => x.DepartmentName, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-outline-primary">Departman Ekle</button>
+</form>
+

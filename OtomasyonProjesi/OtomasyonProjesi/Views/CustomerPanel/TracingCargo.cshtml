@@ -1,0 +1,46 @@
+﻿@using OtomasyonProjesi.Models.Classlar
+@model List<CargoDetail>
+
+@{
+    ViewBag.Title = "TracingCargo";
+    Layout = "~/Views/Shared/_CustomerPanelLayout.cshtml";
+}
+
+<br />
+@using (Html.BeginForm("TracingCargo", "CustomerPanel", FormMethod.Get))
+{
+    <p>
+        Kargo Takip Kodu :  @Html.TextBox("P")
+        <input type="submit" value="Ara" class="btn btn-outline-danger" />
+    </p>
+}
+<br />
+
+
+<h2>Kargo Detay Sayfası</h2>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Personel</th>
+            <th>Alıcı</th>
+            <th>Tarih</th>
+            <th>Takip Kodu</th>
+            <th>Detaylar</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Personel</td>
+                <td>@item.Receiver</td>
+                <td>@Convert.ToDateTime(item.Date).ToString("dd/MM/yyyy")</td>
+                <td>@item.TrackingCode</td>
+                <td><a href="/CustomerPanel/CustomerTracingCargo/@item.TrackingCode" class="btn btn-outline-success">Detaylar</a></td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+

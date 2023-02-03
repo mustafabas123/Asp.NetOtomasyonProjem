@@ -1,0 +1,80 @@
+﻿@model IEnumerable<OtomasyonProjesi.Models.Classlar.ClassGrup2>
+
+<div class="card">
+    <div class="card-header">
+        <h3 class="card-title">Departman Personel Sayısı</h3>
+    </div>
+    <!-- /.card-header -->
+    <div class="card-body p-0">
+        <table class="table table-sm">
+            <thead>
+                <tr>
+                    <th style="width: 10px">#</th>
+                    <th>Departman</th>
+                    <th>Progress Bar</th>
+                    <th style="width: 40px">Sayı</th>
+                </tr>
+            </thead>
+            <tbody>
+                @{ int sayi = 0;}
+                @foreach (var item in Model)
+                {
+                <tr>
+                    <td>@{sayi++;} @sayi</td>
+
+                    <td>@item.DepartmanName</td>
+                    @if (@item.DepartmanCount >= 1 && item.DepartmanCount <=3)
+                    {
+                        <td>
+                            <div class="progress progress-xs">
+                                <div class="progress-bar progress-bar-danger" style="width: 25%"></div>
+                            </div>
+                        </td>
+                    }
+                    @if (@item.DepartmanCount >= 4 && item.DepartmanCount <= 6)
+                    {
+                        <td>
+                            <div class="progress progress-xs">
+                                <div class="progress-bar bg-danger" style="width: 40%"></div>
+                            </div>
+                        </td>
+                    }
+                    @if (@item.DepartmanCount >= 7 && item.DepartmanCount <=10)
+                    {
+                        <td>
+                            <div class="progress progress-xs">
+                                <div class="progress-bar bg-success" style="width: 60%"></div>
+                            </div>
+                        </td>
+                    }
+                    @if (@item.DepartmanCount >= 11)
+                    {
+                        <td>
+                            <div class="progress progress-xs">
+                                <div class="progress-bar bg-info" style="width: 70%"></div>
+                            </div>
+                        </td>
+                    }
+                    @if (@item.DepartmanCount >= 1 && item.DepartmanCount <= 3)
+                    {
+                        <td><span class="badge bg-danger">@item.DepartmanCount</span></td>
+                    }
+                    @if (@item.DepartmanCount >= 4 && item.DepartmanCount <= 6)
+                    {
+                        <td><span class="badge bg-success">@item.DepartmanCount</span></td>
+                    }
+                    @if (@item.DepartmanCount >= 7 && item.DepartmanCount <= 10)
+                    {
+                        <td><span class="badge bg-info">@item.DepartmanCount</span></td>
+                    }
+                    @if (@item.DepartmanCount >= 11)
+                    {
+                        <td><span class="badge bg-info">@item.DepartmanCount</span></td>
+                    }
+                </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+    <!-- /.card-body -->
+</div>

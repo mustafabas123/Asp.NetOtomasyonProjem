@@ -1,0 +1,26 @@
+﻿@using OtomasyonProjesi.Models.Classlar
+@model List<Department>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<table class="table table-bordered">
+    <tr>
+        <th>Departman Ad</th>
+        <th>Pasif Yapma</th>
+        <th>Güncelle</th>
+        <th>Detay</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+    <tr>
+        <td>@item.DepartmentName</td>
+        <td><a href="/Departman/StatePasif/@item.DepartmentId" class="btn btn-outline-danger">Pasif Yap</a></td>
+        <td><a href="/Departman/UpdateDepartman/@item.DepartmentId" class="btn btn-outline-success">Güncelle</a></td>
+        <td><a href="/Departman/DetailDepartman/@item.DepartmentId" class="btn btn-outline-warning">Detay</a></td>
+    </tr>
+    }
+</table>
+<a href="/Departman/AddDepartman/" class="btn btn-outline-primary">Ekle</a>
+

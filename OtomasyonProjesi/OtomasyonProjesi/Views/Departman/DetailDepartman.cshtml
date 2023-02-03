@@ -1,0 +1,24 @@
+﻿@using OtomasyonProjesi.Models.Classlar
+@model List<Personel>
+@{
+    ViewBag.Title = "DetailDepartman";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<h5>Departmanın Adı : @ViewBag.v1</h5>
+
+<table class="table table-bordered">
+    <tr>
+        <th>Personel Adı</th>
+        <th>Personel Soyadı</th>
+        <th>Satışlar</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+    <tr>
+        <td>@item.PersonelName</td>
+        <td>@item.PersonelSurname</td>
+        <td><a href="/Departman/SellingDepartman/@item.PersonelId" class="btn btn-outline-primary">Satış</a></td>
+    </tr>
+    }
+</table>
+

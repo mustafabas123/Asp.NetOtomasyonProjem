@@ -1,0 +1,41 @@
+﻿@model OtomasyonProjesi.Models.Classlar.SalesMovements
+@{
+    ViewBag.Title = "DoSell";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Satış Yapma Sayfası</h2>
+
+<form method="post">
+    @Html.Label("Ürün Id")
+    <input type="text" name="Productid" value="@ViewBag.v2" class="form-control" readonly/>
+    <br />
+    @Html.Label("Personel Adı")
+    @Html.DropDownListFor(x => x.Personelid, (List<SelectListItem>)ViewBag.v1, new { @class = "form-control" })
+    <br />
+    @Html.Label("Müşteri Id")
+    @Html.TextBoxFor(x => x.Customerid, new { @class = "form-control" })
+    <br />
+    @Html.Label("Adet")
+    <input type="number" name="Piece" class="form-control" min="0" id="txt1" onchange="sum();"/>
+    <br />
+    @Html.Label("Fiyat")
+    <input type="text" name="Price" value="@ViewBag.v3" class="form-control" id="txt2" onkeyup="sum();"/>
+    <br />
+    @Html.Label("Toplam Fiyat")
+    <input type="number" name="Total" class="form-control" id="txt3" readonly />
+    <br />
+    <button class="btn btn-outline-primary">Satış Yap</button>
+</form>
+
+<script>
+    function sum() {
+        var number1 = document.getElementById('txt1').value;
+        var number2 = document.getElementById('txt2').value;
+        var result = parseInt(number1) * parseInt(number2);
+        if (!isNaN(result)) {
+            document.getElementById('txt3').value = result;
+        }
+    }
+</script>
+

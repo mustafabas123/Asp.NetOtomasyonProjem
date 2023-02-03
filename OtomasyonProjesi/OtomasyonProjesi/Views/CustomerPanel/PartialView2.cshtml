@@ -1,0 +1,43 @@
+﻿@using OtomasyonProjesi.Models.Classlar
+@model List<New> 
+
+@foreach (var item in Model)
+{
+  <!-- The timeline -->
+
+    <div class="timeline timeline-inverse">
+
+        <!-- timeline time label -->
+
+        <div class="time-label">
+
+            <span class="bg-danger">
+
+                @item.Date.ToShortDateString()
+
+            </span>
+
+        </div>
+
+        <!-- /.timeline-label -->
+        <!-- timeline item -->
+
+        <div>
+
+            <i class="fas fa-envelope bg-primary"></i>
+
+            <div class="timeline-item">
+          
+                <h3 class="timeline-header"><a href="#">@item.NewKonu</a></h3>
+
+                <div class="timeline-body">
+                    @item.NewIcerik
+
+                </div>        
+
+            </div>
+
+        </div>
+    </div>
+
+}

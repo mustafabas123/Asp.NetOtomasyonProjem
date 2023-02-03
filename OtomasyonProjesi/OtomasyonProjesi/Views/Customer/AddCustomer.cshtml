@@ -1,0 +1,24 @@
+﻿@model OtomasyonProjesi.Models.Classlar.Customer
+@{
+    ViewBag.Title = "AddCustomer";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Müşteri Ekleme Sayfası</h2>
+
+<form method="post">
+    @Html.Label("Müşteri Adı")
+    @Html.TextBoxFor(x => x.CustomerName, new { @class = "form-control" })
+    <br />
+    @Html.Label("Müşteri Soyadı")
+    @Html.TextBoxFor(x => x.CustomerSurname, new { @class = "form-control" })
+    <br />
+    @Html.Label("Müşteri Şehri")
+    @Html.TextBoxFor(x => x.CustomerCity, new { @class = "form-control" })
+    <br />
+    @Html.Label("Müşteri Maili")
+    @Html.TextBoxFor(x => x.CustomerMail, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-outline-primary">Müşteri Ekle</button>
+</form>
+

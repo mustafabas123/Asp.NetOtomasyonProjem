@@ -1,0 +1,48 @@
+﻿@using OtomasyonProjesi.Models.Classlar
+@using PagedList
+@using PagedList.Mvc
+@model PagedList.IPagedList<Category>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="~/Scripts/jquery-3.4.1.js"></script>
+
+<table class="table table-bordered mt-2">
+    <tr>
+        <th>Kategori Ad</th>
+        <th>Sil</th>
+        <th>Güncelle</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.CategoryName</td>
+            <td><a href="/Catergory/DeleteCategory/@item.CategoryId" class="btn btn-outline-danger" >Sil</a></td>
+            <td><a href="/Catergory/UpdateCategory/@item.CategoryId" class="btn btn-outline-primary">Güncelle</a></td>
+        </tr>
+    }
+</table>
+<br />
+@Html.PagedListPager((IPagedList)Model, Page => Url.Action("Index", new { Page }),  
+new PagedListRenderOptions
+{
+    LiElementClasses=new List<string> { "page-link"}
+})
+<a class="btn btn-outline-primary" href="/Catergory/AddCategory/">Kategori Ekle</a>
+
+<script>
+    $('#Btn1').click(function () {
+        swal({
+            title: "İyi iş!",
+            text: "Bir Kategori Eklendi!",
+            icon: "success",
+            button: "Tamam!",
+        });
+    });
+</script>
+
+
+

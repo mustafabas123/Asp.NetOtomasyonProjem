@@ -1,0 +1,35 @@
+﻿@model OtomasyonProjesi.Models.Classlar.Personel
+
+
+@{
+    ViewBag.Title = "UpdatePersonel";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+@using (Html.BeginForm("UpdatePersonel", "Personel", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+<form method="post">
+    @Html.HiddenFor(x => x.PersonelId)
+    @Html.Label("Personel Adı")
+    @Html.TextBoxFor(x => x.PersonelName, new { @class = "form-control" })
+    <br />
+    @Html.Label("Personel Soyadı")
+    @Html.TextBoxFor(x => x.PersonelSurname, new { @class = "form-control" })
+    <br />
+    @Html.Label("Görsel Yolu")
+    @Html.TextBoxFor(x => x.ImageUrl, new { @class = "form-control" })
+    <br />
+    @Html.Label("Departman Adı")
+    @Html.DropDownListFor(x => x.Departmentid, (List<SelectListItem>)ViewBag.v1, new { @class = "form-control" })
+    <br />
+    @Html.Label("Personel Adresi")
+    @Html.TextBoxFor(x => x.PersonelAdress, new { @class = "form-control" })
+    <br />
+    @Html.Label("Personel Numarası")
+    @Html.TextBoxFor(x => x.PersonelPhone, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-outline-primary">Personel Güncelle</button>
+</form>
+}
+
+

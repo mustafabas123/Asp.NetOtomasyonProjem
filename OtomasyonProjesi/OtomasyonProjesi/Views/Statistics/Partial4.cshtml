@@ -1,0 +1,67 @@
+﻿@model IEnumerable<OtomasyonProjesi.Models.Classlar.ClassGrup3>
+<div class="card">
+    <div class="card-header">
+        <h3 class="card-title">Ürün Marka Tablosu</h3>
+    </div>
+    <!-- /.card-header -->
+    <div class="card-body p-0">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th style="width: 10px">#</th>
+                    <th>Marka Adı</th>
+                    <th>Progress Bar</th>
+                    <th style="width: 40px">Marka Sayısı</th>
+                </tr>
+            </thead>
+            <tbody>
+                @{ int sayi = 1;}
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@{sayi++;} @sayi</td>
+
+                        <td>@item.Marka</td>
+                        @if (item.CountMarka >= 1 && item.CountMarka <= 3)
+                        {
+                            <td>
+                                <div class="progress progress-xs">
+                                    <div class="progress-bar progress-bar-danger" style="width: 25%"></div>
+                                </div>
+                            </td>
+                        }
+                        @if (item.CountMarka >= 4 && item.CountMarka <= 6)
+                        {
+                            <td>
+                                <div class="progress progress-xs">
+                                    <div class="progress-bar progress-bar-danger" style="width: 50%"></div>
+                                </div>
+                            </td>
+                        }
+                        @if (item.CountMarka >= 7)
+                        {
+                            <td>
+                                <div class="progress progress-xs">
+                                    <div class="progress-bar bg-success" style="width: 75%"></div>
+                                </div>
+                            </td>
+                        }
+                        @if (item.CountMarka >= 1 && item.CountMarka <= 3)
+                        {
+                            <td><span class="badge bg-danger">@item.CountMarka</span></td>
+                        }
+                        @if (item.CountMarka >= 4 && item.CountMarka <= 6)
+                        {
+                            <td><span class="badge bg-danger">@item.CountMarka</span></td>
+                        }
+                        @if (item.CountMarka >= 7)
+                        {
+                            <td><span class="badge bg-danger">@item.CountMarka</span></td>
+                        }
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+    <!-- /.card-body -->
+</div>

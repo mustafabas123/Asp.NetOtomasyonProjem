@@ -1,0 +1,59 @@
+﻿@using OtomasyonProjesi.Models.Classlar
+@model List<SalesMovements>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<br />
+<br />
+<table id="tbl1" class="table table-bordered" style="margin-top:20px" >
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Persoenlin Adı</th>
+            <th>Ürün</th>
+            <th>Müşteri Adı</th>
+            <th>Adet</th>
+            <th>Tarih</th>
+            <th>Fiyat</th>
+            <th>Toplam</th>
+            <th>Güncelle</th>
+            <th>Detaylar</th>
+        </tr>
+    </thead>
+    @foreach (var item in Model)
+    {
+        <tbody>
+            <tr>
+                <td>@item.SalesId</td>
+                <td>@item.Personels.PersonelName  @item.Personels.PersonelSurname</td>
+                <td>@item.Products.ProductName</td>
+                <td>@item.Customers.CustomerName  @item.Customers.CustomerSurname</td>
+                <td>@item.Piece</td>
+                <td>@Convert.ToDateTime(item.Date).ToString("dd/MM/yyyy")</td>
+                <td>@item.Price</td>
+                <td>@item.Total</td>
+                <td><a href="/Sales/UpdateSales/@item.SalesId" class="btn btn-outline-success">Güncelle</a></td>
+                <td><a href="/Sales/DetailSales/@item.SalesId" class="btn btn-outline-primary">Detay</a></td>
+
+            </tr>
+        </tbody>
+    }
+</table>
+<a href="/Sales/AddSales/" class="btn btn-outline-primary">Yeni Satış</a>
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+
+
+
+<link href="https://cdn.datatables.net/1.10.15/css/dataTables.bootstrap.min.css" rel="stylesheet" />
+<link href="https://cdn.datatables.net/responsive/2.1.1/css/responsive.bootstrap.min.css" rel="stylesheet" />
+<script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.15/js/dataTables.bootstrap4.min.js "></script>
+
+<script>
+    $('#tbl1').dataTable({});
+</script>
+

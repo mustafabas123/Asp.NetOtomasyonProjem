@@ -1,0 +1,31 @@
+﻿@model OtomasyonProjesi.Models.Classlar.Category
+@{
+    ViewBag.Title = "AddCategory";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="~/Scripts/jquery-3.4.1.js"></script>
+
+<h2>Kategori Ekleme Sayfası</h2>
+
+<form method="post">
+
+    @Html.Label("Kategori Adı")
+    @Html.TextBoxFor(x => x.CategoryName, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-outline-primary" id="Btn1">Ekle</button>
+</form>
+
+<script>
+    $('#Btn1').click(function () {
+        swal({
+            title: "İyi iş!",
+            text: "Bir Kategori Eklendi!",
+            icon: "success",
+            button: "Tamam!",
+        });
+    });
+</script>
+
+
